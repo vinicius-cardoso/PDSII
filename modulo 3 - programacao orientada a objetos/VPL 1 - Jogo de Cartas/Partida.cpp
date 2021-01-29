@@ -35,7 +35,7 @@ Jogador* Partida::getJogadoresOrdenados(){
 
     for(int i = 0; i < this->_num_jogadores; i++){
         for(int j = 0; j < this->_num_jogadores - 1; j++){
-            if(jogadoresOrdenados[i].calcularPontuacao() > jogadoresOrdenados[i + 1].calcularPontuacao()){
+            if(jogadoresOrdenados[j].calcularPontuacao() > jogadoresOrdenados[j + 1].calcularPontuacao()){
                 jogadorAuxiliar = jogadoresOrdenados[j];
                 jogadoresOrdenados[j] = jogadoresOrdenados[j + 1];
                 jogadoresOrdenados[j + 1] = jogadorAuxiliar;
@@ -50,7 +50,7 @@ void Partida::imprimeJogadoresOrdenados(){
     Jogador* jogadoresOrdenados = getJogadoresOrdenados();
 
     for(int i = 0; i < this->_num_jogadores; i++){
-        cout << jogadoresOrdenados[i].getNomeJogador() << "";
+        cout << jogadoresOrdenados[i].getNomeJogador() << " ";
         cout << jogadoresOrdenados[i].calcularPontuacao() << endl;
     }
 }
