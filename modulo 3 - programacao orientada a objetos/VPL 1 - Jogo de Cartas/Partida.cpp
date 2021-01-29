@@ -3,6 +3,7 @@
 
 Partida::Partida(int num_jogadores){
     this->_num_jogadores = num_jogadores;
+    this->_atualSize = 0;
     this->_jogadores = new Jogador[num_jogadores];
 }
 
@@ -12,6 +13,10 @@ Partida::~Partida(){
 
 int Partida::getNumJogadores(){
     return this->_num_jogadores;
+}
+
+int Partida::getNumAtualJogadores(){
+    return _atualSize;
 }
 
 void Partida::setJogadores(Jogador* jogadores){
@@ -29,10 +34,12 @@ Jogador* Partida::getJogadoresOrdenados(){
     Jogador jogadorAuxiliar;
 
     for(int i = 0; i < this->_num_jogadores; i++){
-        if(jogadoresOrdenados[i].calcularPontuacao() < jogadoresOrdenados[i + 1].calcularPontuacao()){
-            jogadorAuxiliar = jogadoresOrdenados[i];
-            jogadoresOrdenados[i] = jogadoresOrdenados[i + 1];
-            jogadoresOrdenados[i + 1] = jogadorAuxiliar;
+        for(int j = 0; j < this->_num_jogadores - 1; j++){
+            if(jogadoresOrdenados[i].calcularPontuacao() > jogadoresOrdenados[i + 1].calcularPontuacao()){
+                jogadorAuxiliar = jogadoresOrdenados[j];
+                jogadoresOrdenados[j] = jogadoresOrdenados[j + 1];
+                jogadoresOrdenados[j + 1] = jogadorAuxiliar;
+            }
         }
     }
 
@@ -40,32 +47,30 @@ Jogador* Partida::getJogadoresOrdenados(){
 }
 
 void Partida::imprimeJogadoresOrdenados(){
-    /* this->_jogadores.getNomeJogador();
-    this->_jogadores.calcularPontuacao(); */
+    Jogador* jogadoresOrdenados = getJogadoresOrdenados();
 
     for(int i = 0; i < this->_num_jogadores; i++){
-        cout << getJogadoresOrdenados();
+        cout << jogadoresOrdenados[i].getNomeJogador() << "";
+        cout << jogadoresOrdenados[i].calcularPontuacao() << endl;
     }
 }
 
 Jogador Partida::getCampeao(){
-    Jogador reserva;
-
-    for(int i = 0; i < this->_num_jogadores; i++){
-        if(this->_jogadores[i].calcularPontuacao() < this->_jogadores[i + 1].calcularPontuacao()){
-            reserva = this->_jogadores[i];
-            this->_jogadores[i] = this->_jogadores[i + 1];
-            this->_jogadores[i + 1] = reserva;
-        }
-    }
-
-    return this->_jogadores[this->_num_jogadores];
+    return this->_jogadores[this->_num_jogadores - 1];
 }
 
 void Partida::addJogadorCarta(string nomeJogador, int numero_pontos_carta, string naipe){
-    Jogador* jog = new Jogador();
-    jog->setNomeJogador(nomeJogador);
-    jog->adicionaCarta(*(new Carta(numero_pontos_carta,naipe)));
-    jog->getJogadores()[getNumAtualJogadores()] = *jog;
-    this->_atualSize++;
+    Jogador* jogadorCarta;
+
+    if(getNumAtualJogadores() != 0 && getJogadores()[getNumAtualJogadores() - 1].getNomeJogador() == nomeJogador){
+        jogadorCarta = &getJogadores()[getNumAtualJogadores() - 1];
+        jogadorCarta->adicionaCarta(*(new Carta(numero_pontos_carta, naipe)));
+    }
+    else{
+        jogadorCarta = new Jogador();
+        jogadorCarta->setNomeJogador(nomeJogador);
+        jogadorCarta->adicionaCarta(*(new Carta(numero_pontos_carta, naipe)));
+        getJogadores()[getNumAtualJogadores()] = *jogadorCarta;
+        this->_atualSize++;
+    }
 }
