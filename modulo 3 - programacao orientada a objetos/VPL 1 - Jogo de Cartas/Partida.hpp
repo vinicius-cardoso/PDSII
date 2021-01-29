@@ -2,6 +2,7 @@
 #define PARTIDA
 
 #include <string>
+#include <vector>
 #include <iostream>
 #include "Jogador.hpp"
 
@@ -15,7 +16,6 @@ private:
 	int _atualSize = 0;
 
 public:
-
 	Partida(int num_jogadores);
 	~Partida();
 

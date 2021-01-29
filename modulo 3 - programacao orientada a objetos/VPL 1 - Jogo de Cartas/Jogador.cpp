@@ -5,7 +5,7 @@ Jogador::Jogador () {
 	this->_nomeJogador = "";
 }
 
-void Jogador::adicionaCarta (Carta carta){
+void Jogador::adicionaCarta(Carta carta){
 	this->_cartas.push_back(carta);
 }
 	

@@ -16,7 +16,6 @@ int main() {
 	
 	string nomeJogador;
 	int numero_pontos_carta;
-	int i, j;
 	string naipe;
 	for(int i=0; i<numero_jogadores; i++) {
 	    cin >> nomeJogador;
