@@ -1,7 +1,7 @@
 #include "Jogador.hpp"
 #include "Carta.hpp"
 
-Jogador::Jogador () {
+Jogador::Jogador() {
 	this->_nomeJogador = "";
 }
 
