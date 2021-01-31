@@ -1,5 +1,4 @@
 #include "No.hpp"
-#include "FilaPrioridade.hpp"
 
 No::No(int prioridade, int dado, No* proximo){
     this->_prioridade = prioridade;
@@ -15,12 +14,12 @@ No* No::getProximo(){
     return _proximo;
 }
 
-int No::getDado(){
-    return _dado;
-}
-
 void No::setDado(int dado){
     this->_dado = dado;
+}
+
+int No::getDado(){
+    return _dado;
 }
 
 int No::getPrioridade(){

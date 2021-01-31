@@ -23,7 +23,6 @@ public:
 	
 	//Retorna o dado armazenado no nó. 
      // @retorna um inteiro.
-     
      int getDado();
 	
      //Seta o valor do dado que será armazenado no nó.
