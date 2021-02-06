@@ -16,22 +16,22 @@ int main(int argc, char** argv) {
   
     fila->print();
     
-    std::cout << std::endl;
-    std::cout << "s:" << fila->getTamanho() << ", ";
-    std::cout << "m:" << fila->getMeio() << ", ";
-    std::cout << "u:" << fila->getUltimo() << ", ";
-    std::cout << "r:" << fila->remover() << ", ";
-    std::cout << "m:" << fila->getMeio() << ", ";
-    std::cout << "u:" << fila->getUltimo() << ", ";
+    cout << endl;
+    cout << "s:" << fila->getTamanho() << ", ";
+    cout << "m:" << fila->getMeio() << ", ";
+    cout << "u:" << fila->getUltimo() << ", ";
+    cout << "r:" << fila->remover() << ", ";
+    cout << "m:" << fila->getMeio() << ", ";
+    cout << "u:" << fila->getUltimo() << ", ";
     
     fila->furaFila(7);
     
-    std::cout << "m:" << fila->getMeio() << ", ";
-    std::cout << "u:" << fila->getUltimo() << std::endl;
+    cout << "m:" << fila->getMeio() << ", ";
+    cout << "u:" << fila->getUltimo() << endl;
     
     fila->print();
     
-    std::cout << std::endl;
+    cout << endl;
     
     return 0;
 }
