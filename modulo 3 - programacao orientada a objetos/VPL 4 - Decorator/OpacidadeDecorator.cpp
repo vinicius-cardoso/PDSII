@@ -10,6 +10,7 @@ std::string OpacidadeDecorator::desenha() {
     if(this->_opacidade > 0.66 && this->_opacidade <= 1){
         return FormaDecorator::desenha() + "\n- opacidade: alta";
     }
+    return FormaDecorator::desenha();     
 }
 
 void OpacidadeDecorator::setOpacidade(double opacidade) {
