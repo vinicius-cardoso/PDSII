@@ -7,9 +7,12 @@
  * until it becomes full. Any attempt to insert more elements in a filled array
  * will abort the program.
  */
-template <class T, unsigned N> class RingArray {
-  public:
-    RingArray(): _first(0), _last(0) {}
+template <class T, unsigned N>
+
+class RingArray{
+
+public:
+    RingArray() : _first(0), _last(0) {}
     /**
      * \brief This method adds a new value into the array. If the array is full,
      * then this method stops the program. After inserting an element in the
@@ -38,10 +41,10 @@ template <class T, unsigned N> class RingArray {
      */
     bool isEmpty() const;
 
-  private:
+private:
     unsigned _first; ///< The index of the oldest element in the array.
-    unsigned _last; ///< The index of the next empty spot in the array.
-    T buf[N]; ///< The buffer that stores the data in the array.
+    unsigned _last;  ///< The index of the next empty spot in the array.
+    T buf[N];        ///< The buffer that stores the data in the array.
 };
 
 #endif
