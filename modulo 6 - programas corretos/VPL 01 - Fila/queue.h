@@ -5,18 +5,20 @@ struct Node;
 
 // Fila de números inteiros.
 class Queue {
-  public:
+
+public:
     // Representa uma exceção que ocorre quando a fila está vazia.
     // Ela não tem estado, já que toda fila vazia é igual.
     // Consequetemente, sua implementação é vazia.
-    class EmptyException {};
-  
+    class EmptyException {
+    };
+
     // Constrói uma fila vazia.
     Queue();
-    
+
     // Insere um elemento no fim da fila.
     void push(int k);
-    
+
     // Retorna o elemento no início da fila.
     // Lança uma exceção do tipo EmptyException caso a fila esteja vazia.
     int front() const;
@@ -27,13 +29,15 @@ class Queue {
 
     // Remove o elemento no início da fila.
     // Lança uma exceção do tipo EmptyException caso a fila esteja vazia.
-    void pop(); 
-    
+    void pop();
+
     // Retorna o número de elementos na fila.
     int count() const;
-  private:
-    Node* front_;    
-    Node* back_;
+
+private:
+    Node *front_;
+    Node *back_;
+    unsigned size;
 };
 
-#endif  // QUEUE_H
+#endif // QUEUE_H
